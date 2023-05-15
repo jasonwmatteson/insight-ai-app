@@ -40,7 +40,7 @@ export interface IUserOrOrgQuery extends IQuery {
 }
 
 export const useHttpStore = defineStore('http', () => {
-  const items = ref<IItem[]>()
+  const items = ref<IItem[] | null>()
   const isLoading = ref<boolean>(false)
   const GITHUB_API_BASE = 'https://api.github.com'
   const GITHUB_API_SEARCH_ENDPOINT = `${GITHUB_API_BASE}/search`
@@ -57,6 +57,8 @@ export const useHttpStore = defineStore('http', () => {
     }
 
     try {
+      items.value = null
+
       const q = `${query.type}:${query.name}`
 
       const params: IParams = {
@@ -92,8 +94,6 @@ export const useHttpStore = defineStore('http', () => {
         isLoading.value = false
         console.log(items.value)
         return true
-      } else {
-        console.log(resp)
       }
     } catch (error) {
       console.log(error)

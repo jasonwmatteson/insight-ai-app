@@ -5,7 +5,7 @@ import TabMenu from 'primevue/tabmenu'
 const tabMenuItems = ref([
   {
     label: 'Repositories',
-    icon: 'pi pi-fw pi-home',
+    icon: 'pi pi-fw pi-github',
     to: '/'
   },
   {
@@ -17,15 +17,17 @@ const tabMenuItems = ref([
 </script>
 
 <template>
-  <div class="tw-flex tw-flex-col tw-gap-4 tw-p-1 tw-w-full">
+  <div class="tw-flex tw-flex-col tw-gap-4 tw-w-full">
+    <div class="tw-bg-indigo-700 tw-text-indigo-100 tw-text-2xl tw-p-2">
+      Insight.ai - Repository Search
+    </div>
     <TabMenu :model="tabMenuItems" />
     <div class="tw-p-3">
-      <router-view v-slot="{ Component }">
-        <transition name="fade">
-          <component :is="Component" />
-        </transition>
+      <router-view v-slot="{ Component, route }">
+        <KeepAlive>
+          <component :is="Component" :key="route.path" />
+        </KeepAlive>
       </router-view>
     </div>
   </div>
 </template>
-<style lang="scss"></style>
