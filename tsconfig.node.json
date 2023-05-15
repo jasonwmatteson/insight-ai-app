@@ -4,6 +4,8 @@
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
-    "types": ["node"]
+    "types": ["node"],
+    "moduleResolution": "node",
+    "moduleFileExtensions": ["js", "json", "jsx", "ts", "tsx", "node"]
   }
 }
