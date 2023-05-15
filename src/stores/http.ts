@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import type { IGitHubResponse, IItem } from './http.types'
+import type { IItem } from './http.types'
 
 enum ESortOptions {
   STARS = 'stars',

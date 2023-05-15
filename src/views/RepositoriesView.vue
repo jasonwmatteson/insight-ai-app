@@ -116,8 +116,3 @@ const formatStarsCount = (count = 0) => {
     No repositories found.
   </div>
 </template>
-<style lang="scss">
-div {
-  //
-}
-</style>
