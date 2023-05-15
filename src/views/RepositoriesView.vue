@@ -66,7 +66,10 @@ const formatStarsCount = (count = 0) => {
             class="tw-text-lg tw-min-w-[200px] tw-max-w-[200px]"
             style="overflow-wrap: break-word"
           >
-            <a :href="slotProps.data.html_url" target="_blank">{{ slotProps.data.name }}</a>
+            <a :href="slotProps.data.html_url" target="_blank" class="tw-text-indigo-700">{{
+              slotProps.data.name
+            }}</a>
+            <div class="tw-text-xs">{{ slotProps.data.full_name }}</div>
           </div>
           <div class="tw-grow">
             {{ slotProps.data.description }}
